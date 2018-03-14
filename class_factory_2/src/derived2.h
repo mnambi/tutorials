@@ -6,12 +6,13 @@
 class Derived2 : public Base
 {
 public:
-    Derived2();
 
     virtual void name()
     {
-        std::cout << "Derived 2" << std::endl;
+        std::cout << "Class Derived 2" << std::endl;
     }
 };
+
+
 
 #endif // DERIVED2_H

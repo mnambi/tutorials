@@ -1,16 +1,17 @@
 #ifndef DERIVED1_H
 #define DERIVED1_H
 
+#include "base.h"
 
-class Derived1
+class Derived1 : public Base
 {
 public:
-    Derived1();
-
     virtual void name()
     {
-        std::cout << "Derived 1" << std::endl;
+        std::cout << "Class Derived 1" << std::endl;
     }
 };
+
+
 
 #endif // DERIVED1_H

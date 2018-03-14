@@ -1,6 +1,5 @@
 #include "derived1.h"
+#include "factory.h"
 
-Derived1::Derived1()
-{
+static Registrar<Derived1> registrar("Derived1");
 
-}
