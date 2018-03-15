@@ -6,6 +6,7 @@
 class Derived2 : public Base
 {
 public:
+    Derived2();
 
     virtual void name()
     {
