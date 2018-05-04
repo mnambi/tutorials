@@ -1,7 +1,11 @@
 #include <iostream>
 #include "factory.h"
 #include "base.h"
-#include "derived1.h"
+
+/**
+* @file main.cpp 
+* @author mnambi
+*/
 
 int main(int argc, char** argv)
 {
