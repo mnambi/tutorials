@@ -2,7 +2,7 @@
 
 #include <cstring>
 
-#define PORT 1153
+#define PORT 1154
 
 UdpClient::UdpClient()
 {
@@ -52,13 +52,13 @@ void UdpClient::receive()
 {
     socklen_t addr_len = sizeof(recv_addr);
     std::cout << "Receiving" << std::endl;
+    const int bufSize = 2048;
+    unsigned char msg[bufSize];
     while(1)
     {
-        sleep(1000);
-        char * msg = "Hello";
-        std::cout << "Msg: " << msg << std::endl;
-
-        int recvLen = recvfrom(sock, msg, 2048, 0, (struct sockaddr *)&recv_addr, &addr_len);
+        sleep(1);
+        int recvLen = recvfrom(sock, msg, bufSize, 0, (struct sockaddr *)&recv_addr, &addr_len);
+        std::cout << "Received bytes: " << recvLen << std::endl;
         if(recvLen < 0)
         {
             std::cout << "Receive failed." << std::endl;

@@ -1,6 +1,8 @@
 #include "udp_server.h"
 
-#define PORT 1153
+#include <cstring>
+
+#define PORT 1154
 
 struct sockaddr_in broadcast_addr;
 struct sockaddr_in recv_addr;
@@ -43,12 +45,12 @@ void UdpServer::connect()
 
     std::cout << "Setup broadcast" << std::endl;
 
-    if(bind(sock, (struct sockaddr *)&broadcast_addr, sizeof(broadcast_addr)) == -1)
-    {
-        std::cout << "Bind failed" << std::endl;
-        return;
+//    if(bind(sock, (struct sockaddr *)&broadcast_addr, sizeof(broadcast_addr)) == -1)
+//    {
+//        std::cout << "Bind failed" << std::endl;
+//        return;
 
-    }
+//    }
 
 }
 
@@ -57,14 +59,16 @@ void UdpServer::run()
     std::cout << "Broadcasting" << std::endl;
     while(1)
     {
-        sleep(1000);
+        sleep(5);
         char * msg = "Hello";
         std::cout << "Msg: " << msg << std::endl;
 
+        // Send
         if (sendto(sock, msg, strlen(msg)+1, 0, (sockaddr *)&broadcast_addr, sizeof(broadcast_addr)) < 0)
         {
             std::cout << "Broadcast failed." << std::endl;
         }
+
     }
 
 }
